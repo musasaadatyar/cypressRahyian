@@ -1,0 +1,56 @@
+name: Cypress Integration with CI
+on:
+  push:
+    branches: master
+jobs:
+  Test-on-chrome:
+    runs-on: ubunto-latest
+    steps: 
+      - name: checkout
+        uses:  actions/checkout@v4.1.1
+      - name: Install dependencies
+        uses: cypress-io/github-actions@v5.0.8
+        with: 
+          runTests: false
+      - name: Run tests
+        uses: cypress-io/github-actions@v5.0.8
+        with: 
+          command: "nom rub cy:test"
+      - name: Upload videos
+        uses: actions/uploadartifact@v3.1.2
+        if: always()
+        with: 
+          name: cypress-video-chrome
+          path: "${{github.workspace}}/cypress/videos"
+      - name: Upload screenShout
+        uses: actions/uploadartifact@v3.1.2
+        if: always()
+        with: 
+          name: cypress-screenshot-chrome
+          path: "${{github.workspace}}/cypress/screenshots"
+  Test-on-fierfox:
+    runs-on: ubunto-latest
+    steps: 
+      - name: checkout
+        uses:  actions/checkout@v4.1.1
+      - name: Install dependencies
+        uses: cypress-io/github-actions@v5.0.8
+        with: 
+          runTests: false
+      - name: Run tests
+        uses: cypress-io/github-actions@v5.0.8
+        with: 
+          command: "nom rub cy:test"
+      - name: Upload videos
+        uses: actions/uploadartifact@v3.1.2
+        if: always()
+        with: 
+          name: cypress-video-firefox
+          path: "${{github.workspace}}/cypress/videos"
+      - name: Upload screenShout
+        uses: actions/uploadartifact@v3.1.2
+        if: always()
+        with: 
+          name: cypress-screenshot-firefox
+          path: "${{github.workspace}}/cypress/screenshots"
+          

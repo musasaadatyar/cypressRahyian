@@ -9,11 +9,11 @@ jobs:
       - name: checkout
         uses:  actions/checkout@v4.1.1
       - name: Install dependencies
-        uses: cypress-io/github-actions@v5.0.8
+        uses: cypress-io/github-action@v5.0.8
         with: 
           runTests: false
       - name: Run tests
-        uses: cypress-io/github-actions@v5.0.8
+        uses: cypress-io/github-action@v5.0.8
         with: 
           command: "nom rub cy:test"
       - name: Upload videos
@@ -34,11 +34,11 @@ jobs:
       - name: checkout
         uses:  actions/checkout@v4.1.1
       - name: Install dependencies
-        uses: cypress-io/github-actions@v5.0.8
+        uses: cypress-io/github-action@v5.0.8
         with: 
           runTests: false
       - name: Run tests
-        uses: cypress-io/github-actions@v5.0.8
+        uses: cypress-io/github-action@v5.0.8
         with: 
           command: "nom rub cy:test"
       - name: Upload videos
